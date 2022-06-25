@@ -37,12 +37,16 @@
   <div class="container my-3">
     <h1>Welcome to Meastro notes</h1>
     <div class="card">
-
+      
+      
+      
       <div class="card-body">
-        <h5 class="card-title">Add a notes</h5>
-        <div class="form-group">
+        
 
-          <textarea class="form-control" id="addTxt" rows="3"></textarea>
+        <input type="text" placeholder="Enter your title" id="tytleTxt">
+        
+        <div class="form-group">
+          <textarea class="form-control" id="addTxt" rows="3" placeholder="Enter your note"></textarea>
         </div>
         <button class="btn btn-primary" id="addBtn">Add notes</a></button>
       </div>
@@ -54,8 +58,10 @@
 
       <!-- <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
+          <p>
+            <h5 class="card-title" id="card-tytle">Card title</h5>
+          </p>
+          <p class="card-text" id="card-text"></p>
           <a href="#" class="btn btn-primary">Delete Note</a>
         </div>
       </div> -->
@@ -66,7 +72,8 @@
 
   </div>
 
-  <script src="app.js"></script>
+  <!-- <script src="app.js"></script> -->
+  <script src="app2.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
