@@ -4,7 +4,7 @@ showNotes();
 let addbtn = document.getElementById('addBtn');
 //let notesObj = Array["hello"];
 addbtn.addEventListener("click", function (e) {
-    let tytleTxt = document.getElementById('tytleTxt')
+    let tytleTxt = document.getElementById('tytleTxt') // we can also do this by using the array of object rather than making another array
     let addtxt = document.getElementById('addTxt');
     let notes = localStorage.getItem("notes");
     let tytle = localStorage.getItem("tytle");
