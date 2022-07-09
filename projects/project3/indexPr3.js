@@ -12,22 +12,27 @@ xhr.onload = function () {
         let NewsPage = document.getElementById('accordionExample')
         let html = ""
         let JS = JSON.parse(this.responseText)
-        console.log(JS.articles)
+        // console.log(JS.articles)
 
         let news = JS.articles
+        console.log(news)
 
-        Array.from(news).forEach(function (element,index) {
-            let cont = `<div class="card">
+        news.forEach(function (element,index) {
+            //in this class = text-muted text-truncate"  is use for hide the overflow text
+            let cont = `<div class="card newsCard my-3   text-muted text-truncate"  ">
                             <div class="card-header" id="heading${index}">
                             <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse${index}" aria-expanded="false" aria-controls="collapse${index}">
-                                ${element["title"]}
+                                <div id="innerTitle${index}">
+                                    <b>Breaking News ${index+1}:</b> ${element["title"] }
+                                
+                                </div>
                                 </button>
                             </h5>
                             </div>
                             <div id="collapse${index}" class="collapse" aria-labelledby="heading${index}" data-parent="#accordionExample">
-                            <div class="card-body">
-                             ${element.description}
+                            <div class="card-body" id="innerDescription${index}">
+                             ${element.description} <a href ="${element.url}" target="_blank"> Read More </a>
                             </div>
                             </div>
                         </div>`
@@ -47,4 +52,32 @@ xhr.onload = function () {
 }
 
 
+
 xhr.send()
+// let searchBtn = document.getElementById("searchBtn")
+let searchTxt = document.getElementById("searchTxt")
+let card = document.getElementsByClassName("newsCard")
+// console.log(card)
+searchTxt.addEventListener('input',()=>{
+    let Value = searchTxt.value
+    
+    // let JS = JSON.parse(this.responseText)
+        
+
+
+    // console.log(NewsPage)
+    
+    Array.from(card).forEach((element,index)=>{
+        let innerDescription = element.getElementById(`innerDescription${index}`).innerText
+        let innerTitle = element.getElementById(`innerTitle${index}`).innerText
+        if(innerDescription.includes(Value)||innerTitle.includes(Value))
+        {
+            element.style.display = 'block';
+        }
+        else{
+            element.style.display = 'none'
+        }
+        
+    
+    })
+})
